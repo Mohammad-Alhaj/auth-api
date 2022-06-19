@@ -6,6 +6,8 @@
   "scripts": {
     "test": "NODE_ENV=test jest --coverage --verbose",
     "dev": "NODE_ENV=development nodemon index.js",
+    "watch": "nodemon index.js",
+    "db:create": "sequelize init:config",
     "start": "NODE_ENV=production node index.js"
   },
   "repository": {
