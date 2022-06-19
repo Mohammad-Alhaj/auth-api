@@ -9,6 +9,6 @@ const {sequelize} = require('./src/auth/models/index')
 
 sequelize.sync().then(()=>{
 
-    server.start(PORT);
+    server.start(PORT );
 
 })  
