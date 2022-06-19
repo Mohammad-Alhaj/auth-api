@@ -1,24 +1,22 @@
 'use strict';
 require('dotenv').config();
 const { Sequelize,DataTypes } = require('sequelize');
- const user =require('./users-model')
+//  const user =require('./users-model')
  const food = require("../../api-server/models/food")
  const clothes = require("../../api-server/models/clothes")
  const Collection = require('../../api-server/models/data-collection');
 
-const POSTGRES_URI = process.env.NODE_ENV === 'test' ? 'sqlite::memory' : process.env.DATABASE_URL;
-let sequelizeOptions =
-  process.env.NODE_ENV === "production"
-    ?
-    {
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false,
-        },
-      },
-    } : {};
-let sequelize = new Sequelize(POSTGRES_URI,sequelizeOptions);
+ const DATABASE_URL = process.env.NODE_ENV === 'test' ? 'sqlite::memory' : process.env.DATABASE_URL;
+
+ const DATABASE_CONFIG = process.env.NODE_ENV === 'production' ? {
+   dialectOptions: {
+     ssl: {
+       require: true,
+       rejectUnauthorized: false,
+     }
+   }
+ } : {};
+ const sequelize = new Sequelize(DATABASE_URL, DATABASE_CONFIG);
 
 
 const Food = food(sequelize, DataTypes);

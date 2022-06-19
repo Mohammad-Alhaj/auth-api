@@ -11,6 +11,4 @@ sequelize.sync().then(()=>{
 
     server.start(PORT);
 
-})  .catch((e) => {
-    throw new Error("error in app");
-});
+})  
