@@ -6,7 +6,7 @@ const { Sequelize,DataTypes } = require('sequelize');
  const clothes = require("../../api-server/models/clothes")
  const Collection = require('../../api-server/models/data-collection');
 
- const DATABASE_URL = process.env.NODE_ENV === 'test' ? 'sqlite::memory' : process.env.DATABASE_URL;
+ const DATABASE_URL =  process.env.DATABASE_URL;
 
 const DATABASE_CONFIG = process.env.NODE_ENV === 'production' ? {
   dialectOptions: {
