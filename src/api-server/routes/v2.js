@@ -23,7 +23,6 @@ router.post('/:model',bearer,acl('create'), handleCreate);
 router.put('/:model/:id',bearer,acl('update'), handleUpdate);
 router.delete('/:model/:id', bearer,acl('delete'),handleDelete);
 
-
 async function handleGetAll(req, res) {
   let allRecords = await req.model.get();
   res.status(200).json(allRecords);
